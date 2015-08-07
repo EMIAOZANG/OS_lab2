@@ -25,7 +25,7 @@ class Process{
 
 
    //Constructor & Deconstructor
-   Process(int _process_id, int arrival_time, int total_cpu, int cpu_burst, int io_burst, int prio = 1);
+   Process(int _process_id, int arrival_time, int total_cpu, int cpu_burst, int io_burst, int prio = 1, int rem = 0);
 //   Process(string& init_str, int prio = 1);
    //Methods
 

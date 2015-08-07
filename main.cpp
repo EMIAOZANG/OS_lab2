@@ -1,5 +1,7 @@
-#include "sched.h"
+//#include "sched.h"
 #include "event.h"
+#include "process.h"
+#include "simulator.h"
 
 #include <iostream>
 #include <cstdio>
@@ -61,26 +63,12 @@ string parse_args(int& argc, char **argv, int& subarg){
 
 int main(int argc, char **argv){
   //declaration of variable and containers
-  queue<Event> event_queue;
   int num = 0;//subarg <num> 
-  string type_str = parse_args(argc, argv, num);//type indicator of schedulers
-  if (type_str == "F"){
-    FCFS_Scheduler sch; 
-  }
-  else if (type_str == "L"){
-    LCFS_Scheduler sch;
-  }
-  else if (type_str == "S"){
-    SJF_Scheduler sch;
-  }
-  else if (type_str == "P"){
-  }
-  else if (type_str == "R"){
-  }
-  else{
-    //expect correct parameter input
-  }
-  cout << num << "\n\r";
+//  string type_str = parse_args(argc, argv, num);//type indicator of schedulers
+  //test init
+  Simulator sim;
+  sim.init_process_n_event("./data/input0");
+   
   return 0;  
 }
 

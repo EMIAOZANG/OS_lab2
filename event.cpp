@@ -5,14 +5,14 @@ Event::Event(int _timestamp, int _process_id, int _exec_time, string _old_state,
   :timestamp(_timestamp),process_id(_process_id),exec_time(_exec_time),old_state(_old_state),new_state(_new_state),event_count(_event_count)
 {}
 
-Event::Event(Event& e){
-  timestamp = e.timestamp;
-  process_id = e.process_id;
-  exec_time = e.exec_time;
-  old_state = e.old_state;
-  new_state = e.new_state;
-  event_count = e.event_count;
-}
+//Event::Event(Event& e){
+//  timestamp = e.timestamp;
+//  process_id = e.process_id;
+//  exec_time = e.exec_time;
+//  old_state = e.old_state;
+//  new_state = e.new_state;
+//  event_count = e.event_count;
+//}
 
 int Event::get_state_transition(){
   if (old_state == "CREATED" && new_state == "READY"){
@@ -48,9 +48,10 @@ bool operator>(Event& a, Event& b){
 
 
 
-ostream& operator<< (ostream& ost, Event& e){
+ostream& operator<< (ostream& ost, const Event& e){
   //output event in the following format: 0 0 0: OLD -> NEW, no appending \n\r
-  return ost << e.timestamp << " " << e.process_id << " " << e.exec_time << ": " << e.old_state << " -> " << e.new_state;
+  ost << e.timestamp << " " << e.process_id << " " << e.exec_time << ": " << e.old_state << " -> " << e.new_state;
+  return ost;
 }
 
 ////testing class Event

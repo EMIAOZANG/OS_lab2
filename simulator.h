@@ -10,6 +10,7 @@
 #include <sstream>
 #include <string>
 #include <deque>
+#include <cstdlib>
 
 #include "event.h"
 #include "process.h"
@@ -29,7 +30,7 @@ class Simulator{
   int ofs;
 
   int myRandom(int burst);
-  bool init_process_n_event(string& input_filename); 
+  bool init_process_n_event(string input_filename); 
   bool init_randval_list(string& rand_filename);
   
   bool get_event();
@@ -39,7 +40,6 @@ class Simulator{
 
   //constructor & deconstructor
   Simulator();
-  ~Simulator();
 
   //Internal Methods
   
