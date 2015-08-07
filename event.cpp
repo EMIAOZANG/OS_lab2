@@ -14,7 +14,24 @@ Event::Event(Event& e){
   event_count = e.event_count;
 }
 
-Event::~Event(){}
+int Event::get_state_transition(){
+  if (old_state == "CREATED" && new_state == "READY"){
+    return 1;
+  }
+  else if (old_state == "READY" && new_state == "RUNNG"){
+    return 2;
+  }
+  else if (old_state == "RUNNG" && new_state == "BLOCK"){
+    return 3;
+  }
+  else if (old_state == "BLOCK" && new_state == "READY"){
+    return 4;
+  }
+  else if (old_state == "RUNNG" && new_state == "READY"){
+    return 5;
+  }
+  else return 0;
+}
 
 //arrival_time based comparison
 bool operator<(Event& a, Event& b){
@@ -28,6 +45,8 @@ bool operator>(Event& a, Event& b){
   }
   return a.event_count > b.event_count;
 }
+
+
 
 ostream& operator<< (ostream& ost, Event& e){
   //output event in the following format: 0 0 0: OLD -> NEW, no appending \n\r

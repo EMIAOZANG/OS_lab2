@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <deque>
 
 #include "event.h"
 #include "process.h"
@@ -23,6 +24,7 @@ class Simulator{
   priority_queue<Event, vector<Event>, GreaterEvent > event_queue;
   vector<Process> process_list;
   vector<int> randvals;
+  deque<Process> ready_queue;
 
   int ofs;
 

@@ -1,6 +1,13 @@
+#include <vector>
 #include "simulator.h"
 #include "event.h"
 #include "utility.h"
+
+//implementation of constructor
+Simulator::Simulator(){}
+
+Simulator::~Simulator(){}
+
 
 int Simulator::myRandom(int burst){
   return (1 + (randvals.at(ofs)% burst));
@@ -49,6 +56,7 @@ bool Simulator::get_event(){
 
 void Simulator::put_event(int _timestamp, int _process_id, int _exec_time, string _old_state, string _new_state, int _event_count){
   Event e(_timestamp, _process_id, _exec_time, _old_state, _new_state, _event_count);
+//  event_queue.push(e);
   cout << e << endl;
 }
 //

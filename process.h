@@ -14,22 +14,23 @@ using namespace std;
 class Process{
  public:
    //properties
-   int AT;
-   int TC;
-   int CB;
-   int IO;
+   int AT;//arrival time
+   int TC;//total cpu time
+   int CB;//cpu burst
+   int IO;//io burst
+   int process_id;
 
    int priority;
    int rem_time; 
 
-   string status;
 
    //Constructor & Deconstructor
-   Process(int arrival_time, int total_cpu, int cpu_burst, int io_burst, int prio = 1, string _status = "CREATED");
-   Process(string& init_str, int prio = 1, string status = "CREATED");
-   ~Process();
+   Process(int _process_id, int arrival_time, int total_cpu, int cpu_burst, int io_burst, int prio = 1);
+//   Process(string& init_str, int prio = 1);
    //Methods
-   
+
+   //friend methods
+   friend ostream& operator<< (ostream& ost, Process& p);
 };
 
 #endif

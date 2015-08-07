@@ -14,17 +14,14 @@ class Scheduler{
    //constructor & deconstructor
 
    Scheduler();
-   ~Scheduler();
 
    //methods
-   virtual bool add_process()=0;
-   virtual bool get_next_process()=0;
+//   virtual bool add_process()=0;//adding process 
+   virtual bool pick_process()=0;
 };
 
 class FCFS_Scheduler: public Scheduler{
  public:
-
-   deque<Process*> ready_queue;
 
    FCFS_Scheduler();
 
